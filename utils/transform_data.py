@@ -10,7 +10,7 @@ def transform_data(df):
             rates = row['rates']
             normalized_df = pd.json_normalize(rates)
             normalized_df['code'] = base_code
-            normalized_df['date'] = date
+            normalized_df['date'] = date[:10]
             normalized_df['period'] = date[:7]
             new_df_list.append(normalized_df)
     new_df = pd.concat(new_df_list, ignore_index=True)
